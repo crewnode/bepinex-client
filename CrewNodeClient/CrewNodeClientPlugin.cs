@@ -35,10 +35,10 @@ namespace CrewNodeClient
 
             Name.Value = "CrewNode";
 
-            defaultRegions.Insert(0, new RegionInfo(
+            defaultRegions.Insert(0, new KMDGIDEDGGM( // KMDGIDEDGGM = RegionInfo
                 Name.Value, ip, new[]
                 {
-                    new ServerInfo($"{Name.Value}-Master-1", ip, port)
+                    new EEKGADNPDBH($"{Name.Value}-Master-1", ip, port) // EEKGADNPDBH = ServerInfo
                 })
             );
 
@@ -47,6 +47,7 @@ namespace CrewNodeClient
             // HarmonyFileLog.Enabled = true;
             // FileLog.logPath = @"C:\Users\Temporary\Desktop\log\oldClient_HarmonyLogger-" + (DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond).ToString() + ".txt"; ;
             Log.LogDebug("Patching..");
+            Debug.Log("Credits: js6pak for client patches");
             Harmony.PatchAll();
         }
 
@@ -76,14 +77,16 @@ namespace CrewNodeClient
                 }
             }
 
-            [HarmonyPatch(typeof(GameOptionsData), "GetAdjustedNumImpostors")]
+            [HarmonyPatch(typeof(OPIJAMILNFD), nameof(OPIJAMILNFD.LNADDBHDNDE))] // OPIJAMILNFD = GameOptionsData, GetAdjustedNumImpostors = LNADDBHDNDE
             public static class Imposter_Patch
             {
                 [HarmonyPrefix]
-                public static bool Prefix(GameOptionsData __instance, int playerCount, ref int __result)
+                public static bool Prefix(OPIJAMILNFD __instance, int HNINNEIPHDK, ref int __result) // OPIJAMILNFD = GameOptionsData, HNINNEIPHDK = playerCount
                 {
-                    int total = ((GameOptionsData.MaxImpostors.Length) <= playerCount ? 3 : GameOptionsData.MaxImpostors[playerCount]);
+                    int total = ((OPIJAMILNFD.DECPEFPMMMF.Length) <= HNINNEIPHDK ? 3 : OPIJAMILNFD.DECPEFPMMMF[HNINNEIPHDK]); // GameOptionsData = OPIJAMILNFD, MaxImpostors = DECPEFPMMMF, playerCount = HNINNEIPHDK, GameOptionsData = OPIJAMILNFD, MaxImpostors = DECPEFPMMMF, playerCount = HNINNEIPHDK
+
                     __result = total;
+
                     return false;
                 }
             }
@@ -98,12 +101,13 @@ namespace CrewNodeClient
                 }
             }
 
+            /*
             [HarmonyPatch(typeof(PlayerVoteArea), nameof(PlayerVoteArea.Deserialize))]
             public static class Deserialize_Patch
             {
-                public static bool Prefix(ref PlayerVoteArea __instance, MessageReader reader)
+                public static bool Prefix(ref PlayerVoteArea __instance, MessageReader IGFFAFNNIAB)
                 {
-                    byte b = reader.ReadByte();
+                    byte b = IGFFAFNNIAB.ReadByte();
                     __instance.votedFor = (sbyte)((b & 255) - 1);
                     __instance.isDead = ((b & 128) > 0);
                     __instance.didVote = ((b & 64) > 0);
@@ -114,43 +118,44 @@ namespace CrewNodeClient
                     return false;
                 }
             }
+            */
 
-            [HarmonyPatch(typeof(MeetingHud), nameof(MeetingHud.PopulateResults))]
+            [HarmonyPatch(typeof(MeetingHud), nameof(MeetingHud.MABLHGPLBKK))]
             public static class Populate_Patch
             {
-                public static bool Prefix(MeetingHud __instance, Il2CppStructArray<byte> states)
+                public static bool Prefix(MeetingHud __instance, Il2CppStructArray<byte> HJBJHGNOOFL)
                 {
                     __instance.TitleText.Text = "Voting Results";
                     int num = 0;
-                    for (int i = 0; i < __instance.playerStates.Length; i++)
+                    for (int i = 0; i < __instance.FALDLDJHDDJ.Length; i++)
                     {
-                        PlayerVoteArea playerVoteArea = __instance.playerStates[i];
+                        PlayerVoteArea playerVoteArea = __instance.FALDLDJHDDJ[i];
                         playerVoteArea.ClearForResults();
                         int num2 = 0;
-                        for (int j = 0; j < __instance.playerStates.Length; j++)
+                        for (int j = 0; j < __instance.FALDLDJHDDJ.Length; j++)
                         {
-                            if (!Extensions.HasAnyBit(states[j], (byte)128))
+                            if (!BFCIOGPHFFI.MJOFLHBPLHE(HJBJHGNOOFL[j], (byte)128))
                             {
-                                GameData.PlayerInfo playerById = GameData.Instance.GetPlayerById((byte)__instance.playerStates[j].TargetPlayerId);
-                                int num3 = (int)((states[j] & 15) - 1);
+                                GameData.IHEKEPMDGIJ playerById = GameData.Instance.GetPlayerById((byte)__instance.FALDLDJHDDJ[j].TargetPlayerId);
+                                int num3 = (int)((HJBJHGNOOFL[j] & 15) - 1);
                                 if (num3 == (int)playerVoteArea.TargetPlayerId)
                                 {
                                     SpriteRenderer spriteRenderer = UnityEngine.Object.Instantiate<SpriteRenderer>(__instance.PlayerVotePrefab);
-                                    PlayerControl.SetPlayerMaterialColors((int)playerById.ColorId, spriteRenderer);
+                                    PlayerControl.SetPlayerMaterialColors((int)playerById.LHKAPPDILFP, spriteRenderer);
                                     spriteRenderer.transform.SetParent(playerVoteArea.transform);
-                                    spriteRenderer.transform.localPosition = __instance.CounterOrigin + new Vector3(__instance.CounterOffsets.x * (float)num2, 0f, 0f);
+                                    spriteRenderer.transform.localPosition = __instance.BEDJEPCINAI + new Vector3(__instance.LNFHFGONEGA.x * (float)num2, 0f, 0f);
                                     spriteRenderer.transform.localScale = Vector3.zero;
-                                    __instance.StartCoroutine(Effects.Bloop((float)num2 * 0.5f, spriteRenderer.transform, 0.5f));
+                                    __instance.StartCoroutine(FBBJKJLHFKF.KGIPENFLALI((float)num2 * 0.5f, spriteRenderer.transform, 0.5f));
                                     num2++;
                                 }
                                 else if ((i == 0 && num3 == -1) || num3 == 254)
                                 {
                                     SpriteRenderer spriteRenderer2 = UnityEngine.Object.Instantiate<SpriteRenderer>(__instance.PlayerVotePrefab);
-                                    PlayerControl.SetPlayerMaterialColors((int)playerById.ColorId, spriteRenderer2);
+                                    PlayerControl.SetPlayerMaterialColors((int)playerById.LHKAPPDILFP, spriteRenderer2);
                                     spriteRenderer2.transform.SetParent(__instance.SkippedVoting.transform);
-                                    spriteRenderer2.transform.localPosition = __instance.CounterOrigin + new Vector3(__instance.CounterOffsets.x * (float)num, 0f, 0f);
+                                    spriteRenderer2.transform.localPosition = __instance.BEDJEPCINAI + new Vector3(__instance.LNFHFGONEGA.x * (float)num, 0f, 0f);
                                     spriteRenderer2.transform.localScale = Vector3.zero;
-                                    __instance.StartCoroutine(Effects.Bloop((float)num * 0.5f, spriteRenderer2.transform, 0.5f));
+                                    __instance.StartCoroutine(FBBJKJLHFKF.KGIPENFLALI((float)num * 0.5f, spriteRenderer2.transform, 0.5f));
                                     num++;
                                 }
                             }
@@ -166,7 +171,7 @@ namespace CrewNodeClient
                 [HarmonyPostfix]
                 public static void Postfix(MeetingHud __instance)
                 {
-                    if (!DestroyableSingleton<HudManager>.Instance.Chat.IsOpen)
+                    if (!DestroyableSingleton<HudManager>.GHJCLNEIJHD.Chat.FGKJAIIJJBC)
                     {
                         bool flag = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.mouseScrollDelta.y > 0f;
                         if (flag)
@@ -184,7 +189,7 @@ namespace CrewNodeClient
                     }
                     RemovePlayerLimit.UpdatePageText(__instance);
                     int num = 0;
-                    foreach (PlayerVoteArea playerVoteArea in from x in __instance.playerStates.ToArray<PlayerVoteArea>()
+                    foreach (PlayerVoteArea playerVoteArea in from x in __instance.FALDLDJHDDJ.ToArray<PlayerVoteArea>()
                                                               orderby x.isDead
                                                               select x)
                     {
@@ -203,36 +208,11 @@ namespace CrewNodeClient
                 }
             }
 
-            [HarmonyPatch(typeof(NameTextBehaviour), nameof(NameTextBehaviour.ShakeIfInvalid))]
-            public static class ShakeIfInvalid_Patch
-            {
-                [HarmonyPrefix]
-                public static bool Prefix(NameTextBehaviour __instance, ref bool __result)
-                {
-                    var text = __instance.nameSource.text;
-                    string[] bannedNames = { "Outwitt", "0utwitt"};
-
-                    __result = false;
-                    __result = __result || (text == null || text.Length == 0);
-                    __result = __result || text.Equals("Enter Name", StringComparison.OrdinalIgnoreCase);
-                    __result = __result || (BlockedWords.ContainsWord(text));
-                    __result = __result || (string.IsNullOrWhiteSpace(text));
-
-                    for (int i = 0; i < bannedNames.Length; i++)
-                        __result = __result || bannedNames[i].Contains(text);
-
-                    if (__result)
-                        __instance.StartCoroutine(Effects.Bounce(__instance.nameSource.transform, 0.75f, 0.25f));
-
-                    return false;
-                }
-            }
-
-            [HarmonyPatch(typeof(IntroCutscene.ObjectCompilerGeneratedNPrivateSealedIEnumerator1ObjectIEnumeratorIDisposableInObBoInisLi1PlyoCoUnique), "MoveNext")]
+            [HarmonyPatch(typeof(IntroCutscene.KKAPKNMJNFA), "MoveNext")]
             public static class Cutscene_Patch
             {
                 [HarmonyPrefix]
-                public static void Prefix(IntroCutscene.ObjectCompilerGeneratedNPrivateSealedIEnumerator1ObjectIEnumeratorIDisposableInObBoInisLi1PlyoCoUnique __instance)
+                public static void Prefix(IntroCutscene.KKAPKNMJNFA __instance)
                 {
                     Il2CppArrayBase<PlayerControl> il2CppArrayBase = __instance.yourTeam.ToArray();
                     __instance.yourTeam.Clear();

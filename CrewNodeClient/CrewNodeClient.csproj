@@ -2,55 +2,55 @@
     <PropertyGroup>
         <TargetFramework>net472</TargetFramework>
         <GameFolder>/mnt/Games/Steam/steamapps/common/Among Us/</GameFolder>
-        <AssemblyName>AmongUsRoyale</AssemblyName>
-        <RootNamespace>AmongUsRoyale</RootNamespace>
+        <AssemblyName>CrewNodeClient</AssemblyName>
+        <RootNamespace>CrewNodeClient</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
         <Reference Include="0Harmony">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\core\0Harmony.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\core\0Harmony.dll</HintPath>
         </Reference>
         <Reference Include="Assembly-CSharp">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\Assembly-CSharp.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\Assembly-CSharp.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx.Core">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\core\BepInEx.Core.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\core\BepInEx.Core.dll</HintPath>
         </Reference>
         <Reference Include="BepInEx.IL2CPP">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\core\BepInEx.IL2CPP.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\core\BepInEx.IL2CPP.dll</HintPath>
         </Reference>
         <Reference Include="Hazel">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\Hazel.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\Hazel.dll</HintPath>
         </Reference>
         <Reference Include="Il2Cppmscorlib">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\Il2Cppmscorlib.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\Il2Cppmscorlib.dll</HintPath>
         </Reference>
         <Reference Include="Il2CppSystem.Core">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\Il2CppSystem.Core.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\Il2CppSystem.Core.dll</HintPath>
         </Reference>
         <Reference Include="UnhollowerBaseLib">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\core\UnhollowerBaseLib.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\core\UnhollowerBaseLib.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\UnityEngine.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\UnityEngine.CoreModule.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\UnityEngine.CoreModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.IMGUIModule">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\UnityEngine.IMGUIModule.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\UnityEngine.IMGUIModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.InputLegacyModule">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\UnityEngine.InputLegacyModule.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\UnityEngine.InputLegacyModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.PhysicsModule">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\UnityEngine.PhysicsModule.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\UnityEngine.PhysicsModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.TextRenderingModule">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\UnityEngine.TextRenderingModule.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\UnityEngine.TextRenderingModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.UI">
-          <HintPath>..\..\Among.Us.v2020.9.9s\BepInEx\unhollowed\UnityEngine.UI.dll</HintPath>
+          <HintPath>G:\SteamLibrary\SteamApps\common\Among Us\BepInEx\unhollowed\UnityEngine.UI.dll</HintPath>
         </Reference>
     </ItemGroup>
 
